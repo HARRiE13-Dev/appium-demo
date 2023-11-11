@@ -16,6 +16,13 @@ describe("My Login Demo", () => {
     );
   });
 
+  it("should not login with invalid credentials", async () => {
+    LoginScreen.login("123456798", "123456789");
+    await expect(LoginScreen.errorMessageText).toHaveText(
+      "Provided credentials do not match any user in this service."
+    );
+  });
+
   it("should login with valid credentials", async () => {
     LoginScreen.login("bob@example.com", "10203040");
     await expect(CatalogScreen.productsHeader).toHaveText("Products");

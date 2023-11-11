@@ -1,5 +1,9 @@
+const { default: DriverCliCommand } = require("appium/build/lib/cli/driver-command");
+
 describe("My Login Demo", () => {
   beforeEach(async () => {
+
+    await driver.debug()
     //Accesibility selector
     await $('~tab bar option menu').click()
     //Relative Xpath by tag name + attribute
